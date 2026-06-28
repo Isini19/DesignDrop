@@ -1,2 +1,2 @@
 # DesignDrop
-T-shirt design marketplace | React + Node.js | Individual Project
+T-shirt design marketplace | Individual Project
