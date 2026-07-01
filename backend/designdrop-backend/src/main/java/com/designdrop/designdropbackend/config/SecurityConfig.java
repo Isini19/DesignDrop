@@ -22,7 +22,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         // Register and login endpoints are open to everyone
-                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/auth/**", "/api/listings/**").permitAll()
                         // Everything else requires authentication
                         .anyRequest().authenticated()
                 );
