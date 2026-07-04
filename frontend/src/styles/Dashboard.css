@@ -1,0 +1,88 @@
+.dashboard-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.dashboard-title {
+  font-size: 28px;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+
+.dashboard-role {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+
+.dashboard-section-title {
+  font-size: 20px;
+  color: #1a1a2e;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 8px;
+}
+
+.dashboard-empty {
+  color: #999;
+  font-size: 14px;
+}
+
+.dashboard-listing-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 12px;
+}
+
+.dashboard-listing-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+
+.dashboard-listing-price {
+  font-size: 14px;
+  color: #e94560;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.approve-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.approve-button:hover {
+  background-color: #218838;
+}
+
+.reject-button {
+  background-color: #e94560;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.reject-button:hover {
+  background-color: #c73652;
+}
