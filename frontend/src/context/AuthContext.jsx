@@ -1,19 +1,31 @@
 import { createContext, useContext, useState } from "react";
 
-// Create the context
 const AuthContext = createContext();
 
-// Provider wraps the whole app and shares user state
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  // Check if user is already logged in from localStorage
+  const [user, setUser] = useState(() => {
+    const token = localStorage.getItem('token');
+    const email = localStorage.getItem('email');
+    const role = localStorage.getItem('role');
+    if (token && email && role) {
+      return { email, role };
+    }
+    return null;
+  });
 
-  // Call this after successful login
   const login = (userData) => {
+    // Save to localStorage so user stays logged in after refresh
+    localStorage.setItem('email', userData.email);
+    localStorage.setItem('role', userData.role);
     setUser(userData);
   };
 
-  // Call this on logout
   const logout = () => {
+    // Clear everything from localStorage
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    localStorage.removeItem('role');
     setUser(null);
   };
 
@@ -24,5 +36,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Custom hook — use this in any component to get user info
 export const useAuth = () => useContext(AuthContext);
