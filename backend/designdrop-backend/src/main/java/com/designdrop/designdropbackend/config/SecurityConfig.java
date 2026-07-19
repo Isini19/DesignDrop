@@ -39,6 +39,7 @@ public class SecurityConfig {
                         // Public endpoints
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/listings").permitAll()
+                        .requestMatchers("/api/categories").permitAll()
                         // Everything else requires authentication
                         .anyRequest().authenticated()
                 )
