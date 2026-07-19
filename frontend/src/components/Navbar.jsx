@@ -23,6 +23,12 @@ function Navbar() {
         {user ? (
           <>
             <Link to="/dashboard" className="navbar-link">Dashboard</Link>
+
+            {/* Show Create Listing only for designers and companies */}
+            {(user?.role === "DESIGNER" || user?.role === "COMPANY") && (
+              <Link to="/create-listing" className="navbar-link">Create Listing</Link>
+            )}
+
             <span className="navbar-email">{user.email}</span>
             <button onClick={handleLogout} className="navbar-button">
               Logout
