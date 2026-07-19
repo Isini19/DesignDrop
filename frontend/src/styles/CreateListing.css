@@ -1,0 +1,55 @@
+.create-listing-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.create-listing-card {
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-listing-title {
+  font-size: 28px;
+  color: #1a1a2e;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.create-listing-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #1a1a2e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s;
+}
+
+.create-listing-button:hover {
+  background-color: #e94560;
+}
+
+.create-listing-error {
+  color: red;
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.create-listing-success {
+  color: green;
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
