@@ -8,7 +8,6 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // Fetch approved listings when page loads
   useEffect(() => {
     const fetchListings = async () => {
       try {
@@ -25,24 +24,35 @@ function Home() {
 
   return (
     <div className="home-container">
+      {/* Hero Section */}
       <div className="home-hero">
         <h1 className="home-title">Discover Unique Designs</h1>
         <p className="home-subtitle">
           Browse original t-shirt designs from Sri Lanka's best creators
         </p>
+        <a href="/register" className="home-cta-button">
+          Start Selling →
+        </a>
       </div>
 
-      {loading && <p className="home-loading">Loading listings...</p>}
-      {error && <p className="home-error">{error}</p>}
+      {/* Listings Grid */}
+      <div className="home-section">
+        <h2 className="home-section-title">Latest Designs</h2>
 
-      <div className="home-grid">
-        {listings.length > 0 ? (
-          listings.map((listing) => (
-            <ListingCard key={listing.listingId} listing={listing} />
-          ))
-        ) : (
-          !loading && <p className="home-empty">No listings available yet.</p>
-        )}
+        {loading && <p className="home-loading">Loading listings...</p>}
+        {error && <p className="home-error">{error}</p>}
+
+        <div className="home-grid">
+          {listings.length > 0 ? (
+            listings.map((listing) => (
+              <ListingCard key={listing.listingId} listing={listing} />
+            ))
+          ) : (
+            !loading && (
+              <p className="home-empty">No listings available yet.</p>
+            )
+          )}
+        </div>
       </div>
     </div>
   );
