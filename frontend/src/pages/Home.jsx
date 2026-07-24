@@ -7,6 +7,7 @@ function Home() {
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+   const [filter, setFilter] = useState("ALL");
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -22,6 +23,12 @@ function Home() {
     fetchListings();
   }, []);
 
+  // Filter listings by type
+  const filteredListings = listings.filter((l) => {
+    if (filter === "ALL") return true;
+    return l.listingType === filter;
+  });
+
   return (
     <div className="home-container">
       {/* Hero Section */}
@@ -35,16 +42,41 @@ function Home() {
         </a>
       </div>
 
-      {/* Listings Grid */}
+      {/* Filter buttons */}
+      <div className="home-filters">
+        <button
+          onClick={() => setFilter("ALL")}
+          className={`home-filter-btn ${filter === "ALL" ? "active" : ""}`}
+        >
+          All
+        </button>
+        <button
+          onClick={() => setFilter("DESIGN")}
+          className={`home-filter-btn ${filter === "DESIGN" ? "active" : ""}`}
+        >
+          Print on Demand
+        </button>
+        <button
+          onClick={() => setFilter("STOCK")}
+          className={`home-filter-btn ${filter === "STOCK" ? "active" : ""}`}
+        >
+          Ready Stock
+        </button>
+      </div>
+
+       {/* Listings Grid */}
       <div className="home-section">
-        <h2 className="home-section-title">Latest Designs</h2>
+        <h2 className="home-section-title">
+          {filter === "ALL" ? "All Listings" : filter === "DESIGN" ? "Print on Demand" : "Ready Stock"}
+          <span className="home-count"> ({filteredListings.length})</span>
+        </h2>
 
         {loading && <p className="home-loading">Loading listings...</p>}
         {error && <p className="home-error">{error}</p>}
 
         <div className="home-grid">
-          {listings.length > 0 ? (
-            listings.map((listing) => (
+          {filteredListings.length > 0 ? (
+            filteredListings.map((listing) => (
               <ListingCard key={listing.listingId} listing={listing} />
             ))
           ) : (

@@ -43,6 +43,33 @@
   background-color: #c73652;
 }
 
+.home-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.home-filter-btn {
+  padding: 8px 20px;
+  border: 2px solid #1a1a2e;
+  background: white;
+  color: #1a1a2e;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.home-filter-btn:hover {
+  background-color: #1a1a2e;
+  color: white;
+}
+
+.home-filter-btn.active {
+  background-color: #1a1a2e;
+  color: white;
+}
+
 .home-section {
   margin-top: 20px;
 }
@@ -52,6 +79,12 @@
   color: #1a1a2e;
   margin-bottom: 24px;
   font-weight: bold;
+}
+
+.home-count {
+  font-size: 18px;
+  color: #999;
+  font-weight: normal;
 }
 
 .home-grid {
