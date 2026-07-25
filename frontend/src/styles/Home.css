@@ -1,114 +1,196 @@
 .home-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px 60px;
+  min-height: 100vh;
 }
 
 .home-hero {
   text-align: center;
-  padding: 80px 0 60px;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  margin: 0 -24px 60px;
-  padding-left: 24px;
-  padding-right: 24px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  padding: 100px 24px 80px;
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(233, 69, 96, 0.1) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .home-title {
-  font-size: 48px;
+  font-size: 56px;
   color: white;
   margin-bottom: 16px;
-  font-weight: bold;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.home-title span {
+  color: var(--accent);
 }
 
 .home-subtitle {
   font-size: 18px;
   color: #a0a0b0;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .home-cta-button {
   display: inline-block;
-  background-color: #e94560;
+  background-color: var(--accent);
   color: white;
-  padding: 14px 32px;
+  padding: 16px 36px;
   border-radius: 4px;
   text-decoration: none;
   font-size: 16px;
-  font-weight: bold;
-  transition: background-color 0.2s;
+  font-weight: 700;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
 }
 
 .home-cta-button:hover {
-  background-color: #c73652;
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(233, 69, 96, 0.4);
+}
+
+.home-cta-secondary {
+  display: inline-block;
+  background-color: transparent;
+  color: white;
+  padding: 16px 36px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  border: 2px solid rgba(255,255,255,0.3);
+  transition: all 0.2s;
+}
+
+.home-cta-secondary:hover {
+  border-color: white;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.home-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  padding: 32px 24px;
+  background-color: white;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.home-stat {
+  text-align: center;
+}
+
+.home-stat-number {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.home-stat-label {
+  font-size: 13px;
+  color: var(--gray);
+  margin-top: 4px;
+}
+
+.home-body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
 }
 
 .home-filters {
   display: flex;
   gap: 12px;
   margin-bottom: 32px;
+  flex-wrap: wrap;
 }
+
 .home-filter-btn {
-  padding: 8px 20px;
-  border: 2px solid #1a1a2e;
+  padding: 10px 24px;
+  border: 2px solid #e0e0e0;
   background: white;
-  color: #1a1a2e;
+  color: var(--gray);
   border-radius: 20px;
   cursor: pointer;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 600;
   transition: all 0.2s;
 }
 
 .home-filter-btn:hover {
-  background-color: #1a1a2e;
-  color: white;
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 .home-filter-btn.active {
-  background-color: #1a1a2e;
+  background-color: var(--primary);
+  border-color: var(--primary);
   color: white;
 }
 
-.home-section {
-  margin-top: 20px;
+.home-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
 }
 
 .home-section-title {
   font-size: 28px;
-  color: #1a1a2e;
-  margin-bottom: 24px;
-  font-weight: bold;
+  color: var(--primary);
+  font-weight: 800;
 }
 
 .home-count {
-  font-size: 18px;
-  color: #999;
-  font-weight: normal;
+  font-size: 16px;
+  color: var(--gray);
+  font-weight: 400;
 }
 
 .home-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
+  gap: 28px;
 }
 
 .home-loading {
   text-align: center;
-  color: #666;
-  padding: 40px 0;
+  color: var(--gray);
+  padding: 80px 0;
+  font-size: 16px;
 }
 
 .home-error {
   text-align: center;
-  color: red;
+  color: var(--accent);
   padding: 40px 0;
 }
 
 .home-empty {
   text-align: center;
-  color: #999;
-  padding: 60px 0;
+  color: var(--gray);
+  padding: 80px 0;
   grid-column: 1 / -1;
   font-size: 16px;
 }
