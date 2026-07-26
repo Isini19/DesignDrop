@@ -19,6 +19,10 @@ function Register() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleRoleSelect = (role) => {
+    setFormData({ ...formData, role });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -33,17 +37,42 @@ function Register() {
     }
   };
 
+  const roles = [
+    { value: "CUSTOMER", icon: "🛍️", label: "Customer" },
+    { value: "DESIGNER", icon: "🎨", label: "Designer" },
+    { value: "COMPANY", icon: "🏢", label: "Company" },
+  ];
+
   return (
     <div className="register-container">
       <div className="register-card">
+         <h2 className="register-title">Create Account</h2>
         <h2 className="register-title">Create Account</h2>
+         <p className="register-subtitle">Join Sri Lanka's design marketplace</p>
 
         {error && <p className="register-error">{error}</p>}
         {success && <p className="register-success">{success}</p>}
 
         <form onSubmit={handleSubmit}>
+          //role selection card
           <div className="form-field">
-            <label className="form-label">Email</label>
+            <label className="form-label">I am a...</label>
+            <div className="register-role-grid">
+              {roles.map((r) => (
+                <div
+                  key={r.value}
+                  className={`role-card ${formData.role === r.value ? "selected" : ""}`}
+                  onClick={() => handleRoleSelect(r.value)}
+                >
+                  <div className="role-card-icon">{r.icon}</div>
+                  <div className="role-card-label">{r.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="form-field">
+            <label className="form-label">Email Address</label>
             <input
               type="email"
               name="email"
@@ -51,8 +80,11 @@ function Register() {
               onChange={handleChange}
               required
               className="form-input"
+              placeholder="you@example.com"
             />
           </div>
+
+
 
           <div className="form-field">
             <label className="form-label">Password</label>
@@ -63,30 +95,19 @@ function Register() {
               onChange={handleChange}
               required
               className="form-input"
+              placeholder="••••••••"
             />
           </div>
 
-          <div className="form-field">
-            <label className="form-label">I am a...</label>
-            <select
-              name="role"
-              value={formData.role}
-              onChange={handleChange}
-              className="form-input"
-            >
-              <option value="CUSTOMER">Customer</option>
-              <option value="DESIGNER">Designer / Seller</option>
-              <option value="COMPANY">Company</option>
-            </select>
-          </div>
+          
 
           <button type="submit" className="register-button">
-            Register
+            Create Account →
           </button>
         </form>
 
         <p className="register-login-text">
-          Already have an account? <Link to="/login">Login</Link>
+          Already have an account? <Link to="/login">Sign in</Link>
         </p>
       </div>
     </div>
