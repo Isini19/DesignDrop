@@ -1,9 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import "../styles/ListingCard.css";
 
 function ListingCard({ listing }) {
+  const navigate = useNavigate();
+
   return (
-    <div className="listing-card">
-      {/* Design image */}
+    <div
+      className="listing-card"
+      onClick={() => navigate(`/listing/${listing.listingId}`)}
+    >
       <div className="listing-image-container">
         <img
           src={listing.imageUrl && listing.imageUrl.startsWith("http")
@@ -12,7 +17,6 @@ function ListingCard({ listing }) {
           alt={listing.title}
           className="listing-image"
         />
-        {/* Listing type badge */}
         <span className={`listing-badge ${listing.listingType === "DESIGN"
           ? "listing-badge-design"
           : "listing-badge-stock"}`}>
@@ -24,8 +28,18 @@ function ListingCard({ listing }) {
         <h3 className="listing-title">{listing.title}</h3>
         <p className="listing-description">{listing.description}</p>
         <div className="listing-footer">
-          <span className="listing-price">LKR {listing.price?.toLocaleString()}</span>
-          <button className="listing-buy-button">Buy Now</button>
+          <span className="listing-price">
+            LKR {listing.price?.toLocaleString()}
+          </span>
+          <button
+            className="listing-buy-button"
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate(`/listing/${listing.listingId}`);
+            }}
+          >
+            View →
+          </button>
         </div>
       </div>
     </div>
