@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import com.designdrop.designdropbackend.repository.ListingRepository;
 
 @RestController
 @RequestMapping("/api/listings")
@@ -15,6 +16,7 @@ import java.util.List;
 public class ListingController {
 
     private final ListingService listingService;
+    private final ListingRepository listingRepository;
 
     // POST /api/listings/create — seller creates a new listing
     @PostMapping("/create")
@@ -46,6 +48,18 @@ public class ListingController {
     @GetMapping("/pending")
     public ResponseEntity<List<Listing>> getPendingListings() {
         return ResponseEntity.ok(listingService.getPendingListings());
+    }
+
+    // GET /api/listings/{id} — get single listing by ID
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getListingById(@PathVariable Long id) {
+        try {
+            Listing listing = listingRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Listing not found"));
+            return ResponseEntity.ok(listing);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     // PUT /api/listings/{id}/approve — admin approves a listing
