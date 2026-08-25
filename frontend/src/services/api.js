@@ -20,9 +20,13 @@ export const loginUser = (data) => API.post('/auth/login', data);
 
 // Listings API calls
 export const getListings = () => API.get('/listings');
+export const getListingById = (id) => API.get(`/listings/${id}`);
 export const createListing = (data, sellerEmail) =>
   API.post(`/listings/create?sellerEmail=${sellerEmail}`, data);
 export const getPendingListings = () => API.get('/listings/pending');
 export const getSellerListings = (email) => API.get(`/listings/seller?email=${email}`);
 export const approveListing = (id) => API.put(`/listings/${id}/approve`);
 export const rejectListing = (id) => API.put(`/listings/${id}/reject`);
+
+// Profile API calls
+export const getProfile = (email) => API.get(`/profile/${email}`);
