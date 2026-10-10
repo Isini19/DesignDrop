@@ -70,9 +70,14 @@ function Login() {
           </button>
         </form>
 
-        <p className="login-register-text">
-          Don't have an account? <Link to="/register">Register</Link>
-        </p>
+        <div className="login-footer">
+  <Link to="/forgot-password" className="login-forgot">
+    Forgot password?
+  </Link>
+  <p className="login-register-text">
+    Don't have an account? <Link to="/register">Create one free</Link>
+  </p>
+</div>
       </div>
     </div>
   );

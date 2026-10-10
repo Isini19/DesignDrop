@@ -137,3 +137,22 @@
   position: relative;
   z-index: 1;
 }
+
+.login-footer {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-forgot {
+  color: var(--gray);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.login-forgot:hover {
+  color: var(--accent);
+}

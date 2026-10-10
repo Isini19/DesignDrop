@@ -30,7 +30,7 @@ function Register() {
 
     try {
       await registerUser(formData);
-      setSuccess("Registered successfully! Redirecting to login...");
+      setSuccess("Account created! Redirecting to login...");
       setTimeout(() => navigate("/login"), 2000);
     } catch (err) {
       setError(err.response?.data || "Registration failed");
@@ -38,25 +38,27 @@ function Register() {
   };
 
   const roles = [
-    { value: "CUSTOMER", icon: "🛍️", label: "Customer" },
-    { value: "DESIGNER", icon: "🎨", label: "Designer" },
-    { value: "COMPANY", icon: "🏢", label: "Company" },
+    { value: "CUSTOMER", icon: "🛍️", label: "Customer", desc: "Browse & buy designs" },
+    { value: "DESIGNER", icon: "🎨", label: "Designer", desc: "Sell your artwork" },
+    { value: "COMPANY", icon: "🏢", label: "Company", desc: "License designs for your brand" },
   ];
 
   return (
     <div className="register-container">
       <div className="register-card">
-         <h2 className="register-title">Create Account</h2>
-        <h2 className="register-title">Create Account</h2>
-         <p className="register-subtitle">Join Sri Lanka's design marketplace</p>
+
+        <div className="register-logo">DESIGNDROP</div>
+        <h2 className="register-title">Create Your Account</h2>
+        <p className="register-subtitle">Join Sri Lanka's design marketplace</p>
 
         {error && <p className="register-error">{error}</p>}
         {success && <p className="register-success">{success}</p>}
 
         <form onSubmit={handleSubmit}>
-          //role selection card
+
+          {/* Role selection */}
           <div className="form-field">
-            <label className="form-label">I am a...</label>
+            
             <div className="register-role-grid">
               {roles.map((r) => (
                 <div
@@ -66,11 +68,13 @@ function Register() {
                 >
                   <div className="role-card-icon">{r.icon}</div>
                   <div className="role-card-label">{r.label}</div>
+                  <div className="role-card-desc">{r.desc}</div>
                 </div>
               ))}
             </div>
           </div>
 
+          {/* Email */}
           <div className="form-field">
             <label className="form-label">Email Address</label>
             <input
@@ -80,12 +84,11 @@ function Register() {
               onChange={handleChange}
               required
               className="form-input"
-              placeholder="you@example.com"
+              placeholder="john@gmail.com"
             />
           </div>
 
-
-
+          {/* Password */}
           <div className="form-field">
             <label className="form-label">Password</label>
             <input
@@ -95,20 +98,20 @@ function Register() {
               onChange={handleChange}
               required
               className="form-input"
-              placeholder="••••••••"
+              placeholder="Min. 8 characters"
             />
           </div>
-
-          
 
           <button type="submit" className="register-button">
             Create Account →
           </button>
+
         </form>
 
         <p className="register-login-text">
           Already have an account? <Link to="/login">Sign in</Link>
         </p>
+
       </div>
     </div>
   );

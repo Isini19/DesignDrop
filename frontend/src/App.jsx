@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import CreateListing from "./pages/CreateListing";
 import ListingDetail from "./pages/ListingDetail";
 import DesignerProfile from "./pages/DesignerProfile";
+import ForgotPassword from "./pages/ForgotPassword";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/create-listing" element={<CreateListing />} />
           <Route path="/listing/:id" element={<ListingDetail />} />
           <Route path="/profile/:email" element={<DesignerProfile />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
