@@ -11,9 +11,9 @@ function ListingCard({ listing }) {
     >
       <div className="listing-image-container">
         <img
-          src={listing.imageUrl && listing.imageUrl.startsWith("http")
-            ? listing.imageUrl
-            : "https://placehold.co/400x300?text=DesignDrop"}
+          src={listing.imageUrl
+  ? listing.imageUrl
+  : "/images/tshirt1.jpg"}
           alt={listing.title}
           className="listing-image"
         />
