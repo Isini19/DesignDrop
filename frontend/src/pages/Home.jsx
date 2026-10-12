@@ -103,44 +103,70 @@ function Home() {
   </div>
 </div>
 
-      {/* ===== HOW IT WORKS SECTION ===== */}
-      <div className="home-how">
-        <div className="home-section-container">
-          <div className="home-section-label">Simple Process</div>
-          <h2 className="home-section-heading">How DesignDrop Works</h2>
-          <div className="home-steps">
-            <div className="home-step">
-              <div className="step-icon">🎨</div>
-              <div className="step-number">01</div>
-              <h3 className="step-title">Create & Upload</h3>
-              <p className="step-desc">
-                Designers upload their original artwork. 
-                Each design goes through our originality review before going live.
-              </p>
-            </div>
-            <div className="home-step-arrow">→</div>
-            <div className="home-step">
-              <div className="step-icon">✅</div>
-              <div className="step-number">02</div>
-              <h3 className="step-title">Get Approved</h3>
-              <p className="step-desc">
-                Our admin team reviews each submission for originality and quality. 
-                Approved designs go live on the marketplace.
-              </p>
-            </div>
-            <div className="home-step-arrow">→</div>
-            <div className="home-step">
-              <div className="step-icon">💰</div>
-              <div className="step-number">03</div>
-              <h3 className="step-title">Sell & Earn</h3>
-              <p className="step-desc">
-                Customers and companies discover your designs. 
-                Sell prints or license your artwork exclusively to brands.
-              </p>
-            </div>
-          </div>
+      {/* ===== HOW IT WORKS ===== */}
+<div className="home-how">
+  <div className="home-section-container">
+    <div className="home-section-label">Simple Process</div>
+    <h2 className="home-section-heading">How DesignDrop Works</h2>
+    <div className="home-steps">
+
+      <div className="home-step">
+        <div className="step-icon-wrapper" style={{backgroundColor: 'rgba(233,69,96,0.1)'}}>
+          <span className="step-icon">🎨</span>
         </div>
+        <div className="step-number">01</div>
+        <h3 className="step-title">Create & Upload</h3>
+        <p className="step-desc">
+          Designers upload their original artwork.
+          Each design goes through our originality review before going live.
+        </p>
       </div>
+
+      <div className="home-step-arrow">→</div>
+
+      <div className="home-step">
+        <div className="step-icon-wrapper" style={{backgroundColor: 'rgba(40,167,69,0.1)'}}>
+          <span className="step-icon">✅</span>
+        </div>
+        <div className="step-number">02</div>
+        <h3 className="step-title">Get Approved</h3>
+        <p className="step-desc">
+          Our team reviews each submission for quality and originality.
+          Approved designs go live on the marketplace.
+        </p>
+      </div>
+
+      <div className="home-step-arrow">→</div>
+
+      <div className="home-step">
+        <div className="step-icon-wrapper" style={{backgroundColor: 'rgba(255,193,7,0.1)'}}>
+          <span className="step-icon">💰</span>
+        </div>
+        <div className="step-number">03</div>
+        <h3 className="step-title">Sell & Earn</h3>
+        <p className="step-desc">
+          Customers and companies discover your designs.
+          Sell prints or license your artwork exclusively to brands.
+        </p>
+      </div>
+
+      <div className="home-step-arrow">→</div>
+
+      <div className="home-step">
+        <div className="step-icon-wrapper" style={{backgroundColor: 'rgba(102,16,242,0.1)'}}>
+          <span className="step-icon">🚀</span>
+        </div>
+        <div className="step-number">04</div>
+        <h3 className="step-title">Grow Together</h3>
+        <p className="step-desc">
+          Be part of a creative community and turn your passion into
+          a real income opportunity.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
 
       {/* ===== CATEGORIES SECTION ===== */}
       <div className="home-categories">
