@@ -32,49 +32,76 @@ function Home() {
     <div className="home-container">
 
       {/* ===== HERO SECTION ===== */}
-      <div className="home-hero">
-        <div className="home-hero-content">
-          <div className="home-hero-badge">🇱🇰 Made in Sri Lanka</div>
-          <h1 className="home-title">
-            Where Creativity<br />
-            <span className="home-title-accent">Meets Commerce</span>
-          </h1>
-          <p className="home-subtitle">
-            Sri Lanka's first t-shirt design marketplace. 
-            Discover unique artwork from local designers, 
-            buy original prints, or license designs for your brand.
-          </p>
-          <div className="home-hero-buttons">
-            <a href="/register" className="home-cta-primary">
-              Start Selling Free →
-            </a>
-            <a href="#listings" className="home-cta-outline">
-              Browse Designs
-            </a>
+<div className="home-hero">
+  <div className="home-hero-inner">
+
+    {/* Left content */}
+    <div className="home-hero-left">
+      <div className="home-hero-badge">✨ WEAR YOUR IDEAS</div>
+      <h1 className="home-title">
+        Unique T-Shirt Designs<br />
+        for Every <span className="home-title-accent">Story</span>
+      </h1>
+      <p className="home-subtitle">
+        Shop original designs from independent creators
+        or get exclusive designs for your brand.
+      </p>
+      <div className="home-hero-buttons">
+        <a href="#listings" className="home-cta-primary">
+          Explore Designs →
+        </a>
+        <a href="/register" className="home-cta-outline">
+          For Companies
+        </a>
+      </div>
+
+      {/* Trust badges */}
+      <div className="home-trust-badges">
+        <div className="trust-badge">
+          <span className="trust-icon">🎨</span>
+          <div>
+            <p className="trust-label">Original Designs</p>
+            <p className="trust-sub">By Real Creators</p>
           </div>
-          <div className="home-hero-stats">
-            <div className="hero-stat">
-              <strong>{listings.length}+</strong>
-              <span>Designs</span>
-            </div>
-            <div className="hero-stat-divider" />
-            <div className="hero-stat">
-              <strong>100%</strong>
-              <span>Original</span>
-            </div>
-            <div className="hero-stat-divider" />
-            <div className="hero-stat">
-              <strong>DTF</strong>
-              <span>Print Quality</span>
-            </div>
-            <div className="hero-stat-divider" />
-            <div className="hero-stat">
-              <strong>LKR</strong>
-              <span>Local Currency</span>
-            </div>
+        </div>
+        <div className="trust-divider" />
+        <div className="trust-badge">
+          <span className="trust-icon">🔒</span>
+          <div>
+            <p className="trust-label">Secure Payments</p>
+            <p className="trust-sub">& Fast Delivery</p>
+          </div>
+        </div>
+        <div className="trust-divider" />
+        <div className="trust-badge">
+          <span className="trust-icon">🏢</span>
+          <div>
+            <p className="trust-label">For Companies</p>
+            <p className="trust-sub">Exclusive Licensing</p>
           </div>
         </div>
       </div>
+    </div>
+
+    {/* Right — T-shirt mockup */}
+    <div className="home-hero-right">
+      <div className="hero-image-wrapper">
+        <div className="hero-image-bg" />
+        <img
+          src="/images/hero-tshirt.png"
+          alt="Featured Design"
+          className="hero-tshirt-img"
+          onError={(e) => {
+            e.target.src = "/images/tshirt1.jpeg";
+          }}
+        />
+        
+        
+      </div>
+    </div>
+
+  </div>
+</div>
 
       {/* ===== HOW IT WORKS SECTION ===== */}
       <div className="home-how">
