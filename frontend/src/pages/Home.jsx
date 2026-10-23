@@ -168,29 +168,39 @@ function Home() {
   </div>
 </div>
 
+      
       {/* ===== CATEGORIES SECTION ===== */}
-      <div className="home-categories">
-        <div className="home-section-container">
-          <div className="home-section-label">Browse By Style</div>
-          <h2 className="home-section-heading">Popular Categories</h2>
-          <div className="home-categories-grid">
-            {[
-              { icon: "🏙️", name: "Streetwear", count: "24 designs" },
-              { icon: "✏️", name: "Minimalist", count: "18 designs" },
-              { icon: "🎭", name: "Abstract", count: "15 designs" },
-              { icon: "⚡", name: "Sports", count: "12 designs" },
-              { icon: "🌿", name: "Nature", count: "20 designs" },
-              { icon: "✍️", name: "Typography", count: "9 designs" },
-            ].map((cat) => (
-              <div key={cat.name} className="home-category-card">
-                <div className="category-icon">{cat.icon}</div>
-                <h4 className="category-name">{cat.name}</h4>
-                <p className="category-count">{cat.count}</p>
-              </div>
-            ))}
+<div className="home-categories">
+  <div className="home-section-container">
+    <div className="home-section-label">Browse By Style</div>
+    <h2 className="home-section-heading">Popular Categories</h2>
+
+    <div className="home-categories-grid">
+      {[
+        { name: "Streetwear", image: "/images/tshirt1.jpeg" },
+        { name: "Minimalist", image: "/images/tshirt2.jpeg" },
+        { name: "Anime", image: "/images/tshirt3.jpeg" },
+        { name: "Abstract", image: "/images/tshirt4.jpeg" },
+        { name: "Sports", image: "/images/tshirt5.jpeg" },
+        { name: "Typography", image: "/images/tshirt6.jpeg" },
+      ].map((cat) => (
+        <a key={cat.name} href="#listings" className="home-category-card">
+          <img
+            src={cat.image}
+            alt={cat.name}
+            className="category-image"
+          />
+          <div className="category-overlay" />
+          <div className="category-info">
+            <h4 className="category-name">{cat.name}</h4>
+            <span className="category-link">Explore →</span>
           </div>
-        </div>
-      </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+      
 
       {/* ===== LISTINGS SECTION ===== */}
       <div className="home-listings" id="listings">
