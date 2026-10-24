@@ -202,52 +202,50 @@ function Home() {
 </div>
       
 
-      {/* ===== LISTINGS SECTION ===== */}
-      <div className="home-listings" id="listings">
-        <div className="home-section-container">
-          <div className="home-section-label">Fresh Drops</div>
-          <h2 className="home-section-heading">Latest Designs</h2>
+     {/* ===== LISTINGS SECTION ===== */}
+<div className="home-listings" id="listings">
+  <div className="home-section-container">
+    <div className="home-section-label">Trending Now</div>
+    <h2 className="home-section-heading">Latest Designs</h2>
 
-          {/* Filter buttons */}
-          <div className="home-filters">
-            {["ALL", "DESIGN", "STOCK"].map((f) => (
-              <button
-                key={f}
-                onClick={() => setFilter(f)}
-                className={`home-filter-btn ${filter === f ? "active" : ""}`}
-              >
-                {f === "ALL" ? "All Designs" : f === "DESIGN" ? "🖨️ Print on Demand" : "👕 Ready Stock"}
-              </button>
-            ))}
-          </div>
+    {/* Filter buttons */}
+    <div className="home-filters">
+      {["ALL", "DESIGN", "STOCK"].map((f) => (
+        <button
+          key={f}
+          onClick={() => setFilter(f)}
+          className={`home-filter-btn ${filter === f ? "active" : ""}`}
+        >
+          {f === "ALL" ? "All Designs" : f === "DESIGN" ? "Print on Demand" : "Ready Stock"}
+          {" "}({listings.filter((l) => f === "ALL" || l.listingType === f).length})
+        </button>
+      ))}
+    </div>
 
-          {loading && (
-            <div className="home-loading">
-              <div className="loading-spinner" />
-              <p>Loading designs...</p>
-            </div>
-          )}
-          {error && <p className="home-error">{error}</p>}
-
-          <div className="home-grid">
-            {filteredListings.length > 0 ? (
-              filteredListings.map((listing) => (
-                <ListingCard key={listing.listingId} listing={listing} />
-              ))
-            ) : (
-              !loading && (
-                <div className="home-empty">
-                  <div className="empty-icon">🎨</div>
-                  <p>No designs available yet.</p>
-                  <a href="/register" className="home-cta-primary" style={{display:'inline-block', marginTop:'16px'}}>
-                    Be the first to upload →
-                  </a>
-                </div>
-              )
-            )}
-          </div>
-        </div>
+    {loading && (
+      <div className="home-loading">
+        <div className="loading-spinner" />
+        <p>Loading designs...</p>
       </div>
+    )}
+    {error && <p className="home-error">{error}</p>}
+
+    <div className="home-grid">
+      {filteredListings.length > 0 ? (
+        filteredListings.map((listing) => (
+          <ListingCard key={listing.listingId} listing={listing} />
+        ))
+      ) : (
+        !loading && (
+          <div className="home-empty">
+            <div className="empty-icon">🎨</div>
+            <p>No designs in this category yet.</p>
+          </div>
+        )
+      )}
+    </div>
+  </div>
+</div>
 
       {/* ===== WHY DESIGNDROP SECTION ===== */}
       <div className="home-why">
