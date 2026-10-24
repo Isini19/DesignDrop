@@ -30,28 +30,31 @@ function ListingDetail() {
 
   return (
     <div className="listing-detail-container">
-      {/* Back button */}
       <button onClick={() => navigate(-1)} className="listing-detail-back">
         ← Back
       </button>
 
       <div className="listing-detail-content">
-        {/* Left — Image */}
+        {/* Left: image */}
         <div className="listing-detail-image-section">
           <img
-            src={listing.imageUrl && listing.imageUrl.startsWith("http")
-              ? listing.imageUrl
-              : "https://placehold.co/600x500?text=DesignDrop"}
+            src={listing.imageUrl || "/images/tshirt1.jpeg"}
             alt={listing.title}
             className="listing-detail-image"
+            onError={(e) => {
+              e.target.src = "/images/tshirt1.jpeg";
+            }}
           />
-          <span className={`listing-detail-badge ${listing.listingType === "DESIGN"
-            ? "badge-design" : "badge-stock"}`}>
+          <span
+            className={`listing-detail-badge ${
+              listing.listingType === "DESIGN" ? "badge-design" : "badge-stock"
+            }`}
+          >
             {listing.listingType === "DESIGN" ? "Print on Demand" : "Ready Stock"}
           </span>
         </div>
 
-        {/* Right — Info */}
+        {/* Right: info */}
         <div className="listing-detail-info">
           <h1 className="listing-detail-title">{listing.title}</h1>
           <p className="listing-detail-price">
@@ -66,7 +69,9 @@ function ListingDetail() {
             </div>
             <div className="listing-detail-meta-item">
               <span className="meta-label">Type</span>
-              <span className="meta-value">{listing.listingType}</span>
+              <span className="meta-value">
+                {listing.listingType === "DESIGN" ? "Print on Demand" : "Ready Stock"}
+              </span>
             </div>
             {listing.stockQuantity && (
               <div className="listing-detail-meta-item">
@@ -77,16 +82,12 @@ function ListingDetail() {
           </div>
 
           <button className="listing-detail-buy-button">
-            Buy Now — LKR {listing.price?.toLocaleString()}
+            Buy Now: LKR {listing.price?.toLocaleString()}
           </button>
 
-          {/* Seller info */}
           <div className="listing-detail-seller">
             <p className="seller-label">Sold by</p>
-            <Link
-              to={`/profile/${listing.seller?.email}`}
-              className="seller-link"
-            >
+            <Link to={`/profile/${listing.seller?.email}`} className="seller-link">
               🎨 {listing.seller?.email}
             </Link>
             <p className="seller-role">{listing.seller?.role}</p>

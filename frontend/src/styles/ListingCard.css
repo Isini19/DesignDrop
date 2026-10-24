@@ -85,15 +85,15 @@
 
 .listing-footer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .listing-price {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
   color: var(--accent);
+  white-space: nowrap;
 }
 
 .listing-actions {
@@ -128,13 +128,14 @@
 }
 
 .listing-view-button {
+  flex: 1;
   background-color: var(--primary);
   color: white;
   border: none;
-  padding: 9px 14px;
+  padding: 11px 14px;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   white-space: nowrap;
   transition: background-color 0.2s;
