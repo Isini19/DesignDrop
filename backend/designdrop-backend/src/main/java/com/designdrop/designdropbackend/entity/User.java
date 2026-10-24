@@ -3,6 +3,7 @@ package com.designdrop.designdropbackend.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
 @Entity
@@ -16,8 +17,10 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @JsonIgnore
     @Column(nullable = false)
     private String passwordHash;
+
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
