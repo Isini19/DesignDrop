@@ -380,70 +380,76 @@ const featuredDesigners = Object.values(
   </div>
 </div>
 
-      {/* ===== TESTIMONIALS SECTION ===== */}
-      <div className="home-testimonials">
-        <div className="home-section-container">
-          <div className="home-section-label">What People Say</div>
-          <h2 className="home-section-heading">Loved by Creators</h2>
-          <div className="testimonials-grid">
-            {[
-              {
-                name: "Kasun Perera",
-                role: "Graphic Designer, Colombo",
-                text: "DesignDrop gave me a platform to monetize my artwork without needing to handle printing or logistics. Approved in less than a day!",
-                rating: "⭐⭐⭐⭐⭐",
-              },
-              {
-                name: "Dilini Fernando",
-                role: "Fashion Brand Owner",
-                text: "As a company, finding unique Sri Lankan designs for our clothing line was always a struggle. DesignDrop solved that completely.",
-                rating: "⭐⭐⭐⭐⭐",
-              },
-              {
-                name: "Ashan Rajapaksa",
-                role: "University Student, Kandy",
-                text: "I started selling my artwork on DesignDrop while studying. It's the easiest way for young designers to get their work out there.",
-                rating: "⭐⭐⭐⭐⭐",
-              },
-            ].map((t) => (
-              <div key={t.name} className="testimonial-card">
-                <p className="testimonial-rating">{t.rating}</p>
-                <p className="testimonial-text">"{t.text}"</p>
-                <div className="testimonial-author">
-                  <div className="testimonial-avatar">
-                    {t.name.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="testimonial-name">{t.name}</p>
-                    <p className="testimonial-role">{t.role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+   
+                
 
-      {/* ===== FINAL CTA SECTION ===== */}
-      <div className="home-cta-section">
-        <div className="home-section-container">
-          <h2 className="cta-section-title">Ready to Drop Your First Design?</h2>
-          <p className="cta-section-subtitle">
-            Join Sri Lanka's growing community of independent designers.
-          </p>
-          <div className="home-hero-buttons">
-            <a href="/register" className="home-cta-primary">
-              Create Free Account →
-            </a>
-            <a href="#listings" className="home-cta-outline-dark">
-              Browse Designs First
-            </a>
+     {/* ===== TESTIMONIALS ===== */}
+<div className="home-testimonials">
+  <div className="home-section-container">
+    <div className="home-section-label">Real Stories</div>
+    <h2 className="home-section-heading">What Our Community Says</h2>
+    <p className="sample-note">Sample feedback for demonstration</p>
+
+    <div className="testimonials-grid">
+      {[
+        {
+          name: "Chanaka Perera",
+          role: "Customer",
+          text: "Found a design I couldn't get anywhere else. The print quality is great.",
+        },
+        {
+          name: "Nimesha Silva",
+          role: "Designer",
+          text: "A simple way to show my artwork and sell it without handling printing myself.",
+        },
+        {
+          name: "Lakmal Fernando",
+          role: "Company",
+          text: "We found a local designer for our brand and got something truly unique.",
+        },
+      ].map((t) => (
+        <div key={t.name} className="testimonial-card">
+          <div className="testimonial-stars">★★★★★</div>
+          <p className="testimonial-text">"{t.text}"</p>
+          <div className="testimonial-author">
+            <div className="testimonial-avatar">{t.name.charAt(0)}</div>
+            <div>
+              <p className="testimonial-name">{t.name}</p>
+              <p className="testimonial-role">{t.role}</p>
+            </div>
           </div>
         </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+{/* ===== FINAL CTA ===== */}
+<div className="home-final-cta">
+  <div className="final-cta-inner">
+    <div>
+      <h2 className="final-cta-title">
+        Your next favorite design <span>is waiting.</span>
+      </h2>
+      <p className="final-cta-text">
+        Explore unique designs, support creators, or partner with us for your brand.
+      </p>
+      <div className="exclusive-buttons">
+        <a href="#listings" className="home-cta-primary">Browse Designs →</a>
+        <a href="/register" className="exclusive-outline">Become a Designer</a>
       </div>
+    </div>
+    <img
+      src="/images/tshirt3.jpeg"
+      alt="Featured design"
+      className="final-cta-img"
+    />
+  </div>
+</div>
 
     </div>
   );
 }
+
 
 export default Home;
