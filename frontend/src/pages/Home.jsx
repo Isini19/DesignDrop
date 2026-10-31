@@ -341,63 +341,44 @@ const featuredDesigners = Object.values(
   </div>
 )}
 
-      {/* ===== WHY DESIGNDROP SECTION ===== */}
-      <div className="home-why">
-        <div className="home-section-container">
-          <div className="home-section-label">Why Choose Us</div>
-          <h2 className="home-section-heading">Built for Sri Lankan Creators</h2>
-          <div className="home-features-grid">
-            <div className="home-feature">
-              <div className="feature-icon">🔒</div>
-              <h3 className="feature-title">Originality Protected</h3>
-              <p className="feature-desc">
-                Every design goes through a manual originality review 
-                before it goes live. No copies allowed.
-              </p>
-            </div>
-            <div className="home-feature">
-              <div className="feature-icon">🖨️</div>
-              <h3 className="feature-title">DTF Print Quality</h3>
-              <p className="feature-desc">
-                All print-on-demand orders are printed using 
-                high quality DTF printing for vibrant, lasting results.
-              </p>
-            </div>
-            <div className="home-feature">
-              <div className="feature-icon">🏢</div>
-              <h3 className="feature-title">B2B Licensing</h3>
-              <p className="feature-desc">
-                Companies can license exclusive designs directly 
-                from designers for their branding needs.
-              </p>
-            </div>
-            <div className="home-feature">
-              <div className="feature-icon">💳</div>
-              <h3 className="feature-title">Local Currency</h3>
-              <p className="feature-desc">
-                All transactions in Sri Lankan Rupees. 
-                No currency conversion hassle for local buyers and sellers.
-              </p>
-            </div>
-            <div className="home-feature">
-              <div className="feature-icon">🎨</div>
-              <h3 className="feature-title">For Every Creator</h3>
-              <p className="feature-desc">
-                Whether you're a freelance artist, a design student, 
-                or a full-time creator — DesignDrop is your platform.
-              </p>
-            </div>
-            <div className="home-feature">
-              <div className="feature-icon">🚀</div>
-              <h3 className="feature-title">Easy to Start</h3>
-              <p className="feature-desc">
-                Register free, upload your design, 
-                and start selling within 24 hours of approval.
-              </p>
-            </div>
-          </div>
+      {/* ===== WHY DESIGNDROP ===== */}
+<div className="home-why">
+  <div className="home-section-container">
+    <div className="home-section-label">Why Us</div>
+    <h2 className="home-section-heading">More Than Just T-Shirts</h2>
+
+    <div className="why-grid">
+      {[
+        {
+          icon: "🎨",
+          title: "Original & Creative",
+          desc: "Every design is reviewed for originality before it goes live. No copies.",
+        },
+        {
+          icon: "🖨️",
+          title: "Quality DTF Printing",
+          desc: "Print-on-demand orders use DTF printing for vibrant, long-lasting results.",
+        },
+        {
+          icon: "🤝",
+          title: "For Everyone",
+          desc: "Buy a shirt, sell your art or partner with a designer for your brand.",
+        },
+        {
+          icon: "🏢",
+          title: "Exclusive Licensing",
+          desc: "Companies can secure exclusive rights so a design is only theirs.",
+        },
+      ].map((item) => (
+        <div key={item.title} className="why-card">
+          <div className="why-icon">{item.icon}</div>
+          <h3 className="why-title">{item.title}</h3>
+          <p className="why-desc">{item.desc}</p>
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
+</div>
 
       {/* ===== TESTIMONIALS SECTION ===== */}
       <div className="home-testimonials">

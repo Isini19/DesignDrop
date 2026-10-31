@@ -449,41 +449,54 @@
   background-color: white;
 }
 
-.home-features-grid {
+.why-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
-.home-feature {
-  padding: 32px;
-  border-radius: var(--radius-lg);
-  border: 2px solid #f0f0f0;
-  transition: all 0.2s;
+.why-card {
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 16px;
+  padding: 32px 24px;
+  transition: all 0.25s;
 }
 
-.home-feature:hover {
+.why-card:hover {
+  transform: translateY(-5px);
   border-color: var(--accent);
-  box-shadow: var(--shadow);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 
-.feature-icon {
-  font-size: 36px;
-  margin-bottom: 16px;
+.why-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(233, 69, 96, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 18px;
 }
 
-.feature-title {
-  font-size: 18px;
-  font-weight: 700;
+.why-title {
+  font-size: 17px;
+  font-weight: 800;
   color: var(--primary);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
-.feature-desc {
+.why-desc {
   font-size: 14px;
   color: var(--gray);
   line-height: 1.7;
 }
+
+
+
+
 
 /* ===== TESTIMONIALS ===== */
 .home-testimonials {
