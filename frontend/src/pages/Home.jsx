@@ -28,6 +28,19 @@ function Home() {
     return l.listingType === filter;
   });
 
+  // Build the featured designers list from real listings
+const featuredDesigners = Object.values(
+  listings.reduce((acc, l) => {
+    const email = l.seller?.email;
+    if (!email) return acc;
+    if (!acc[email]) {
+      acc[email] = { email, count: 0, image: l.imageUrl };
+    }
+    acc[email].count += 1;
+    return acc;
+  }, {})
+).slice(0, 4);
+
   return (
     <div className="home-container">
 
@@ -246,6 +259,87 @@ function Home() {
     </div>
   </div>
 </div>
+
+{/* ===== EXCLUSIVE FOR COMPANIES ===== */}
+<div className="home-exclusive">
+  <div className="home-exclusive-inner">
+    <div className="exclusive-images">
+      <img
+        src="/images/tshirt2.jpeg"
+        alt="Brand mockup"
+        className="exclusive-img exclusive-img-main"
+      />
+      <img
+        src="/images/tshirt4.jpeg"
+        alt="Brand mockup"
+        className="exclusive-img exclusive-img-side"
+      />
+    </div>
+
+    <div className="exclusive-content">
+      <div className="exclusive-label">Design Drop for Business</div>
+      <h2 className="exclusive-title">
+        One design. <span>Your brand.</span> Your rules.
+      </h2>
+      <p className="exclusive-text">
+        Discover original artwork from independent Sri Lankan designers and
+        secure exclusive rights for your own brand, so no one else can sell
+        the same design.
+      </p>
+
+      <ul className="exclusive-points">
+        <li>✓ Browse original, reviewed designs</li>
+        <li>✓ Work directly with the designer</li>
+        <li>✓ Exclusive ownership after purchase</li>
+      </ul>
+
+      <div className="exclusive-buttons">
+        <a href="/register" className="home-cta-primary">
+          Register as a Company →
+        </a>
+        <a href="#listings" className="exclusive-outline">
+          Browse Designs
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{/* ===== FEATURED DESIGNERS ===== */}
+{featuredDesigners.length > 0 && (
+  <div className="home-designers">
+    <div className="home-section-container">
+      <div className="home-section-label">Meet The Creators</div>
+      <h2 className="home-section-heading">Talented Designers. Unique Styles.</h2>
+
+      <div className="designers-grid">
+        {featuredDesigners.map((d) => (
+          <a
+            key={d.email}
+            href={`/profile/${d.email}`}
+            className="designer-card"
+          >
+            <div className="designer-avatar-wrap">
+              <img
+                src={d.image || "/images/tshirt1.jpeg"}
+                alt={d.email}
+                className="designer-avatar"
+                onError={(e) => {
+                  e.target.src = "/images/tshirt1.jpeg";
+                }}
+              />
+            </div>
+            <h4 className="designer-name">@{d.email.split("@")[0]}</h4>
+            <p className="designer-meta">
+              {d.count} {d.count === 1 ? "design" : "designs"}
+            </p>
+            <span className="designer-link">View Portfolio →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+)}
 
       {/* ===== WHY DESIGNDROP SECTION ===== */}
       <div className="home-why">
